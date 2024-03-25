@@ -14,6 +14,8 @@ export type SelectContextProps = {
     handleFocus: () => void;
     handleChange: (selectedValue: string) => void;
     handleOptionClick: (selectedOption: string) => void;
+    handleDisable: () => void;
+    handlePlaceholder: () => void;
   };
   export const SelectContext = React.createContext<SelectContextProps | undefined>(undefined);
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext, FC, ReactNode } from 'react';
+import React, { useState, useRef} from 'react';
 import SelectOptionsList from './options/SelectOptionsList';
 import SelectedValue from './options/SelectValue';
 import { SelectContext, SelectContextProps } from './hooks/SelectContext';
@@ -21,6 +21,14 @@ const BasicSelect = ({ value,options }:BasicSelectProviderProps) => {
     if (disabled) return;
     setIsOpen(!isOpen);
   };
+
+  const handleDisable = () => {
+    setDisabled(!disabled);
+  }
+
+  const handlePlaceholder = () => {
+    setPlaceholder('New Placeholder');
+  }
 
   const handleBlur = () => {
     setFocused(false);
@@ -55,6 +63,8 @@ const BasicSelect = ({ value,options }:BasicSelectProviderProps) => {
     handleFocus,
     handleChange,
     handleOptionClick,
+    handleDisable,
+    handlePlaceholder
   };
 
   return (
