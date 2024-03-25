@@ -1,10 +1,16 @@
-import { FC } from "react";
-import { selectValueTypes } from "./selectValue.types";
+import React, { FC } from 'react';
 
-const SelectedValue: FC<selectValueTypes> = ({ value, placeholder, onClick }) => (
-    <div className="selected-value" onClick={onClick}>
-      {value || placeholder}
-    </div>
-  );
+type SelectedValueProps = {
+  value: React.ReactNode;
+  placeholder: string;
+  onClick: () => void;
+};
+const SelectValue: FC<SelectedValueProps> = ({ value, placeholder, onClick }) => {
+  
+  return(
+  <div className="selected-value" onClick={onClick}>
+    {value || placeholder}
+  </div>
+)};
 
-export default SelectedValue;
+export default SelectValue;

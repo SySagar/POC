@@ -1,13 +1,20 @@
-import { selectOptionTypes } from "./SelectOption.types";
+import React, { FC, ReactNode } from 'react';
 
-const SelectOption = ({ option, onClick, selected }:selectOptionTypes) => (
-    <div
-      role="option"
-      className={`option ${selected ? 'selected' : ''}`}
-      onClick={onClick}
-    >
-      {option}
-    </div>
-  );
+type SelectOptionProps = {
+  option: ReactNode;
+  onClick: () => void;
+  selected: boolean;
+};
+const SelectOption: FC<SelectOptionProps> = ({ option, onClick, selected }) => {
+  
+  return(
+  <div
+    role="option"
+    className={`option ${selected ? 'selected' : ''}`}
+    onClick={onClick}
+  >
+    {option}
+  </div>
+)};
 
 export default SelectOption;
