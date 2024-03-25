@@ -1,23 +1,8 @@
 import React, { useState, useRef, useContext, FC, ReactNode } from 'react';
 import SelectOptionsList from './options/SelectOptionsList';
 import SelectedValue from './options/SelectValue';
+import { SelectContext, SelectContextProps } from './hooks/SelectContext';
 import './select.css';
-
-// Step 1: Create Context
-type SelectContextProps = {
-  isOpen: boolean;
-  focused: boolean;
-  value: string;
-  disabled: boolean;
-  placeholder: string;
-  selectRef: React.RefObject<HTMLDivElement>;
-  handleClick: () => void;
-  handleBlur: () => void;
-  handleFocus: () => void;
-  handleChange: (selectedValue: string) => void;
-  handleOptionClick: (selectedOption: string) => void;
-};
-const SelectContext = React.createContext<SelectContextProps | undefined>(undefined);
 
 // Step 3: Create Compound Component
 export type BasicSelectProviderProps = {
@@ -83,18 +68,8 @@ const BasicSelect = ({ value,options }:BasicSelectProviderProps) => {
       onFocus={handleFocus}
       onBlur={handleBlur}
     >
-      {/* <SelectedValue
-        value={value}
-        placeholder={placeholder}
-        onClick={handleClick}
-      /> */}
       {value || placeholder}
       {isOpen && (
-        // <SelectOptionsList
-        //   options={['Option 1', 'Option 2', 'Option 3']} 
-        //   handleOptionClick={handleChange}
-        //   selectedValue={value}
-        // />
         <div>
         {options}
         </div>

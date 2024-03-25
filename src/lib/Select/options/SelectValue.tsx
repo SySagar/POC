@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
+import { useSelectContext } from '../hooks/SelectContext';
 
 type SelectedValueProps = {
   value: React.ReactNode;
   placeholder: string;
-  onClick: () => void;
 };
-const SelectValue: FC<SelectedValueProps> = ({ value, placeholder, onClick }) => {
-  
+const SelectValue: FC<SelectedValueProps> = ({ placeholder }) => {
+  const {handleClick,value} = useSelectContext();
   return(
-  <div className="selected-value" onClick={onClick}>
+  <div className="selected-value" onClick={handleClick}>
     {value || placeholder}
   </div>
 )};

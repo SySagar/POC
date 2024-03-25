@@ -16,10 +16,10 @@ function App() {
     <>
       <BasicSelect
       value={
-        <BasicSelect.Value value={selectData.value} placeholder={selectData.placeholder} onClick={() => {}} />
+        <BasicSelect.Value value={selectData.value} placeholder={selectData.placeholder}/>
       }
       options={
-        <BasicSelect.Options options={selectData.options} handleOptionClick={() => {}} selectedValue={selectData.value} />
+        <BasicSelect.Options options={selectData.options} selectedValue={selectData.value} />
       }
       />
     </>

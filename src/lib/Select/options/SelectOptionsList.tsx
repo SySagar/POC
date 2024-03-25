@@ -1,12 +1,15 @@
 import React, { FC, ReactNode } from 'react';
+import { useSelectContext } from '../hooks/SelectContext';
 import SelectOption from './SelectOption';
 
 type SelectOptionsListProps = {
   options: ReactNode[];
-  handleOptionClick: (selectedOption: string) => void;
   selectedValue: ReactNode;
 };
-const SelectOptionsList: FC<SelectOptionsListProps> = ({ options, handleOptionClick, selectedValue }) =>{
+const SelectOptionsList: FC<SelectOptionsListProps> = ({ options,  selectedValue }) =>{
+  const {handleOptionClick,isOpen} = useSelectContext();
+
+  console.log('isOpen:', isOpen);
   return (
   <div className="options-list">
     {options.map((option, index) => (
