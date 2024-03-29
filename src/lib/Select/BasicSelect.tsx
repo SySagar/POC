@@ -2,9 +2,27 @@ import React, { useState, useRef} from 'react';
 import SelectOptionsList from './options/SelectOptionsList';
 import SelectedValue from './options/SelectValue';
 import { SelectContext, SelectContextProps } from './hooks/SelectContext';
+import * as stylex from "@stylexjs/stylex";
 import './select.css';
 
-// Step 3: Create Compound Component
+const styles = stylex.create({
+  select: {
+    display: 'flex',
+    position: 'relative',
+    minHeight: '40px',
+    maxWidth: '200px',
+    fontSize: '16px',
+    backgroundColor: '#fff',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
+  open: {
+    borderBottomLeftRadius: '0',
+    borderBottomRightRadius: '0',
+    display: 'block',
+  },
+});
+
 export type BasicSelectProviderProps = {
   value?: React.ReactNode;
   options?: React.ReactNode;
@@ -71,9 +89,7 @@ const BasicSelect = ({ value,options }:BasicSelectProviderProps) => {
     <SelectContext.Provider value={contextValue}>
      <div
       ref={selectRef}
-      className={`select ${isOpen ? 'open' : ''} ${focused ? 'focused' : ''} ${
-        disabled ? 'disabled' : ''
-      }`}
+      {...stylex.props(styles.select)}
       tabIndex={disabled ? -1 : 0}
       onFocus={handleFocus}
       onBlur={handleBlur}
